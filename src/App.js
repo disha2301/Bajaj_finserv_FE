@@ -22,7 +22,7 @@ const FullPageApp = () => {
     try {
       const parsedData = JSON.parse(inputData);
       const response = await fetch(
-        "https://bajaj-finserv-be-ora3.onrender.com",
+        "https://bajaj-finserv-be-ora3.onrender.com/bajaj_finserv",
         {
           method: "POST",
           headers: {
