@@ -8,7 +8,10 @@ const FullPageApp = () => {
   const [inputData, setInputData] = useState("");
   const [apiResponse, setApiResponse] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
-  const [selectedFilters, setSelectedFilters] = useState(["Numbers", "Top Alphabet"]);
+  const [selectedFilters, setSelectedFilters] = useState([
+    "Numbers",
+    "Top Alphabet",
+  ]);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
 
   const handleFormSubmit = async (e) => {
@@ -18,13 +21,16 @@ const FullPageApp = () => {
 
     try {
       const parsedData = JSON.parse(inputData);
-      const response = await fetch("", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(parsedData),
-      });
+      const response = await fetch(
+        "https://bajaj-finserv-be-ora3.onrender.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(parsedData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to fetch");
